@@ -159,13 +159,35 @@
       <!-- Word container -->
       <section
         id="word-container"
-        class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-3 gap-5"
+        class="bg-gray-100 p-10 w-11/12 mx-auto my-10 md:grid grid-cols-3 gap-5"
       >
         <div class="text-center col-span-full space-y-5 font-bangla">
-          
-          <p class="text-[#79716B]">আপনি এখনো কোন <span>Lesson Select</span> করেন নি</p>
-          <h2 class="text-[#292524] font-medium text-4xl">একটি <span>Lesson Select</span> করুন।</h2>
+          <p class="text-[#79716B]">
+            আপনি এখনো কোন <span>Lesson Select</span> করেন নি
+          </p>
+          <h2 class="text-[#292524] font-medium text-4xl">
+            একটি <span>Lesson Select</span> করুন।
+          </h2>
         </div>
+      </section>
+
+      <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
+        <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <div id="details-container" class="space-y-8">
+              <!-- Container for word Details -->
+            </div>
+            <div class="modal-action justify-start">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn btn-primary">Complete Learning</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
       </section>
     </main>
     <script src="./script/script.js"></script>
