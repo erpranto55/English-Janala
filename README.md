@@ -10,7 +10,7 @@ This project demonstrates practical implementation of **API integration, asynchr
 ## Live Demo
 
 🔗 **Live Website:**  
-http://english-janala-pro.vercel.app/
+https://english-janala-pro.vercel.app/
 
 ---
 
@@ -19,7 +19,9 @@ http://english-janala-pro.vercel.app/
 - Browse vocabulary by **lesson**
 - **Search vocabulary** instantly
 - View **word details in modal**
-- Pronunciation support
+- **Listen to word pronunciation**
+- **Save favorite vocabulary words**
+- **Remove saved words anytime**
 - Shows **meaning, example, and synonyms**
 - **Loading spinner** while fetching data
 - Displays **No Word Found** when search results are empty
@@ -43,6 +45,7 @@ http://english-janala-pro.vercel.app/
 - Async / Await
 - DOM Manipulation
 - Event Handling
+- Speech Synthesis API
 
 **Other Tools**
 
@@ -57,6 +60,8 @@ This project demonstrates the following development skills:
 
 - API data fetching and rendering
 - Dynamic UI updates using JavaScript
+- Vocabulary save & remove functionality
+- Speech pronunciation using Web Speech API
 - Conditional rendering for empty states
 - Search filtering functionality
 - Loading state management
