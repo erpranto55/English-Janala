@@ -7,35 +7,37 @@ This project demonstrates practical implementation of **API integration, asynchr
 
 ---
 
-##  Live Demo
+## Live Demo
 
 🔗 **Live Website:**  
 http://english-janala-pro.vercel.app/
 
 ---
 
-##  Features
+## Features
 
--  Browse vocabulary by **lesson**
--  **Search vocabulary** instantly
--  View **word details in modal**
--  Pronunciation support
--  Shows **meaning, example, and synonyms**
--  **Loading spinner** while fetching data
--  Displays **No Word Found** when search results are empty
--  Fully **responsive design**
+- Browse vocabulary by **lesson**
+- **Search vocabulary** instantly
+- View **word details in modal**
+- Pronunciation support
+- Shows **meaning, example, and synonyms**
+- **Loading spinner** while fetching data
+- Displays **No Word Found** when search results are empty
+- Fully **responsive design**
 
 ---
 
-##  Technologies Used
+## Technologies Used
 
 **Frontend**
+
 - HTML5
 - CSS3
 - Tailwind CSS
 - DaisyUI
 
 **JavaScript**
+
 - ES6+
 - Fetch API
 - Async / Await
@@ -43,12 +45,13 @@ http://english-janala-pro.vercel.app/
 - Event Handling
 
 **Other Tools**
+
 - Font Awesome Icons
 - Google Fonts
 
 ---
 
-##  Technical Highlights
+## Technical Highlights
 
 This project demonstrates the following development skills:
 
@@ -62,32 +65,30 @@ This project demonstrates the following development skills:
 
 ---
 
-##  Project Structure
+## Project Structure
 
-English-Janala
-│
-├── index.html
-├── script
-│ └── script.js
-├── style
-│ └── style.css
-├── assets
-│ ├── logo.png
-│ ├── hero-student.png
-│ └── alert-error.png
-└── README.md
-
+English-Janala <br>
+│<br>
+├── index.html<br>
+├── script<br>
+│ └── script.js<br>
+├── style<br>
+│ └── style.css<br>
+├── assets<br>
+│ ├── logo.png<br>
+│ ├── hero-student.png<br>
+│ └── alert-error.png <br>
+└── README.md <br>
 
 ---
 
-##  API Integration
+## API Integration
 
 This project uses the **Programming Hero Open API**.
 
 Base URL: https://openapi.programming-hero.com/api
 
-
-##  Learning Outcomes
+## Learning Outcomes
 
 Through building this project, the following concepts were practiced:
 
@@ -99,7 +100,7 @@ Through building this project, the following concepts were practiced:
 
 ---
 
-##  Author
+## Author
 
 **ER Pranto**
 
@@ -111,6 +112,6 @@ https://www.linkedin.com/in/erpranto55/
 
 ---
 
-##  Support
+## Support
 
 If you found this project helpful, please consider giving it a **⭐ star on GitHub**.
