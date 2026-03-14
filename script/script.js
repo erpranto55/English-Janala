@@ -1,3 +1,5 @@
+let savedWords = [];
+
 const createElements = (arr) => {
   const htmlElements = arr.map(
     (el) =>
@@ -5,6 +7,12 @@ const createElements = (arr) => {
   );
   return htmlElements.join(" ");
 };
+
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN";
+  window.speechSynthesis.speak(utterance);
+}
 
 const manageSpinner = (status) => {
   if (status) {
@@ -115,12 +123,22 @@ const displayLevelWords = (words, isSearch = false) => {
               "${word.meaning ? word.meaning : "No Meaning Found"} / ${word.pronunciation ? word.pronunciation : "No Pronunciation Found"}"
             </p>
             <div class="flex justify-between items-center">
+
+              <!-- Info Button -->
               <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]" onclick="loadWordDetail(${word.id})">
                 <i class="fa-solid fa-circle-info"></i>
               </button>
-              <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]">
+
+              <!-- Sound Button -->
+              <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]" onclick="pronounceWord('${word.word}')">
                 <i class="fa-solid fa-volume-high"></i>
               </button>
+
+              <!-- Save Word Button -->
+              <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]" onclick='saveWord(${JSON.stringify(word)})'>
+                <i class="fa-solid fa-heart"></i>
+              </button>
+
             </div>
           </div>
         </div>
@@ -148,7 +166,91 @@ const displayLessons = (lessons) => {
   });
 };
 
+const saveWord=(word)=> {
+  const exists = savedWords.find((w) => w.id === word.id);
+  if (exists) {
+    alert("Word already saved!");
+    return;
+  }
+  savedWords.push(word);
+
+  displaySavedWords();
+}
+
+const displaySavedWords=()=> {
+  const container = document.getElementById("saved-container");
+  container.innerHTML = "";
+
+  // Empty state
+  if (savedWords.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full text-center py-10 space-y-4">
+
+        <img src="./assets/alert-error.png" class="mx-auto w-16 opacity-60" />
+
+        <p class="text-gray-600 text-lg font-bold">
+          No saved vocabularies yet
+        </p>
+
+        <p class="text-gray-400">
+          Save words by clicking the ❤️ icon
+        </p>
+
+      </div>
+    `;
+    return;
+  }
+
+  savedWords.forEach((word) => {
+    const card = document.createElement("div");
+
+    card.innerHTML = `
+      <div class="bg-white rounded-xl border-2 border-[#E5E7EB] text-center py-10 px-8">
+        <div class="space-y-8">
+
+          <h2 class="font-bold text-3xl">
+            ${word.word || "No Word Found"}
+          </h2>
+
+          <p class="font-semibold text-xl">
+            Meaning / Pronunciation
+          </p>
+
+          <p class="font-bangla font-semibold opacity-[80%] text-3xl">
+            "${word.meaning || "No Meaning Found"} / ${word.pronunciation || "No Pronunciation Found"}"
+          </p>
+
+          <div class="flex justify-between items-center">
+
+            <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]" onclick="loadWordDetail(${word.id})">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+
+            <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]" onclick="pronounceWord('${word.word}')">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+
+            <button class="btn bg-red-100 hover:bg-red-300" onclick="removeSavedWord(${word.id})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+const removeSavedWord=(id)=> {
+  savedWords = savedWords.filter((word) => word.id !== id);
+  displaySavedWords();
+}
+
 loadLessons();
+displaySavedWords();
 
 document.getElementById("btn-search").addEventListener("click", () => {
   removeActive();
