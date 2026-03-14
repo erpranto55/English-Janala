@@ -14,6 +14,10 @@ https://english-janala-pro.vercel.app/
 
 ---
 
+## Project Preview
+
+[![English Janala](./assets/preview.png)](https://english-janala-pro.vercel.app/)
+
 ## Features
 
 - Browse vocabulary by **lesson**
@@ -82,7 +86,8 @@ English-Janala <br>
 ├── assets<br>
 │ ├── logo.png<br>
 │ ├── hero-student.png<br>
-│ └── alert-error.png <br>
+│ ├── alert-error.png <br>
+│ └── preview.png <br> 
 └── README.md <br>
 
 ---
@@ -109,11 +114,9 @@ Through building this project, the following concepts were practiced:
 
 **ER Pranto**
 
-GitHub:  
-https://github.com/erpranto55
+GitHub: https://github.com/erpranto55
 
-LinkedIn:  
-https://www.linkedin.com/in/erpranto55/
+LinkedIn: https://www.linkedin.com/in/erpranto55/
 
 ---
 
