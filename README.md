@@ -87,7 +87,7 @@ This project uses the **Programming Hero Open API**.
 Base URL: https://openapi.programming-hero.com/api
 
 
-## 🎯 Learning Outcomes
+##  Learning Outcomes
 
 Through building this project, the following concepts were practiced:
 
@@ -99,7 +99,7 @@ Through building this project, the following concepts were practiced:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **ER Pranto**
 
@@ -111,6 +111,6 @@ https://www.linkedin.com/in/erpranto55/
 
 ---
 
-## ⭐ Support
+##  Support
 
 If you found this project helpful, please consider giving it a **⭐ star on GitHub**.
