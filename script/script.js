@@ -83,16 +83,22 @@ const displayWordDetails = (word) => {
   document.getElementById("word_modal").showModal();
 };
 
-const displayLevelWords = (words) => {
+const displayLevelWords = (words, isSearch = false) => {
   const wordContainer = document.getElementById("word-container");
   wordContainer.innerHTML = "";
 
-  if (words.length === 0) {
+  if (!words || words.length === 0) {
     wordContainer.innerHTML = `
         <div class="text-center col-span-full space-y-5 font-bangla">
-            <img src="./assets/alert-error.png" alt="" class="mx-auto">
-            <p class="text-[#79716B]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-            <h2 class="text-[#292524] font-medium text-4xl">নেক্সট Lesson এ যান</h2>
+            <img src="./assets/alert-error.png" alt="Alert Error" class="mx-auto">           
+            ${
+              isSearch
+                ? `<p class="text-[#79716B]">কোন শব্দ পাওয়া যায়নি</p>
+                   <h2 class="text-[#292524] font-medium text-4xl">No Word Found</h2>`
+                : `<p class="text-[#79716B]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                   <h2 class="text-[#292524] font-medium text-4xl">নেক্সট Lesson এ যান</h2>`
+            }
+
         </div>
     `;
     manageSpinner(false);
@@ -149,13 +155,25 @@ document.getElementById("btn-search").addEventListener("click", () => {
   const input = document.getElementById("input-search");
   const searchValue = input.value.trim().toLowerCase();
 
+  const wordContainer = document.getElementById("word-container");
+  wordContainer.innerHTML = "";
+
+  manageSpinner(true);
+
   fetch("https://openapi.programming-hero.com/api/words/all")
     .then((res) => res.json())
     .then((data) => {
       const allWords = data.data;
       const filterWords = allWords.filter((word) =>
-        word.word.toLowerCase().includes(searchValue),
+        word.word?.toLowerCase().includes(searchValue),
       );
-      displayLevelWords(filterWords);
+      displayLevelWords(filterWords, true);
+      // input.value = "";
     });
+});
+
+document.getElementById("input-search").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("btn-search").click();
+  }
 });
